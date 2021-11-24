@@ -1,1 +1,2 @@
-export const ACTION_TYPE = 'ACTION_TYPE';
+export const CHANGE_AMOUNT = 'CHANGE_AMOUNT';
+export const CHANGE_SCORE = 'CHANGE_SCORE';

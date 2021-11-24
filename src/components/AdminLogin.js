@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,12 +6,9 @@ const AdminLogin = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  console.log('username', userName);
-
-  console.log('password', password);
 
   const handleSubmit = () => {
-        navigate('/questionscrud');
+    navigate('/questionscrud');
   };
 
   return (
@@ -22,6 +19,7 @@ const AdminLogin = () => {
           name='username'
           onChange={(e) => setUserName(e.target.value)}
         />
+        <br />
         <input
           placeholder='password'
           name='password'
