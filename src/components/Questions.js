@@ -1,22 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useAxios from '../hooks/useAxios';
 import { useSelector } from 'react-redux';
+
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * Math.floor(max));
+};
 
 const Questions = () => {
   let apiUrl = 'https://frontend-interview-quiz.herokuapp.com/api/javascript';
   const { response, loading } = useAxios({ url: apiUrl });
   const { amount_of_questions } = useSelector((state) => state);
-  console.log(amount_of_questions);
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    if (response) {
+      const question = response[questionIndex];
+      let answers = [...question.wrongAnswers];
+      let wrongAnswers = [response.wrongAnswers]
+      answers.splice(
+        getRandomInt(wrongAnswers.length),
+        0,
+        question.correctAnswer
+      );
+      console.log('this answers', answers)
+      setOptions(answers);
+    }
+  }, [response, questionIndex]);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+  console.log('response', response);
+
   return (
     <div>
-      <h1>Questions 1</h1>
-      <h2>This is the question</h2>
+      <h1>Questions {questionIndex + 1}</h1>
+      <h2>{response[questionIndex].question}</h2>
       <button>Answer1</button>
       <button>Answer2</button>
       <button>Answer3</button>
       <button>Answer4</button>
       <div>
-        <h4>Score: 3/5</h4>
+        <h4>Score: 3/ {amount_of_questions}</h4>
       </div>
     </div>
   );
