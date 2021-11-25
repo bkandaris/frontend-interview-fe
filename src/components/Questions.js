@@ -16,15 +16,14 @@ const Questions = () => {
   useEffect(() => {
     if (response) {
       const question = response[questionIndex];
+      let questionAnswer = question.correctAnswer;
       let answers = [...question.wrongAnswers];
-      let wrongAnswers = [response.wrongAnswers]
-      answers.splice(
-        getRandomInt(wrongAnswers.length),
-        0,
-        question.correctAnswer
-      );
-      console.log('this answers', answers)
+      const wrongAnswers = question.wrongAnswers;
+
+      answers.splice(getRandomInt(answers.length), 0, questionAnswer);
+
       setOptions(answers);
+      console.log('final array of answers', answers);
     }
   }, [response, questionIndex]);
 
