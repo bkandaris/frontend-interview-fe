@@ -5,7 +5,7 @@ import { handleAmountChange, handleScoreChange } from '../redux/actions';
 
 const FinalScreen = () => {
   const dispatch = useDispatch();
-  const { score } = useSelector((state) => state);
+  const { score, amount_of_questions } = useSelector((state) => state);
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -16,7 +16,9 @@ const FinalScreen = () => {
 
   return (
     <div>
-      <h1>Final Score: {score}</h1>
+      <h1>
+        Final Score: {score} / {amount_of_questions}
+      </h1>
       <button onClick={handleClick}>Restart</button>
     </div>
   );

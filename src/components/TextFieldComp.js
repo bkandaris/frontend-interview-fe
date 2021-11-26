@@ -26,7 +26,9 @@ const TextFieldComp = () => {
             onChange={handleChange}
             label='Amount of Questions'
             placeholder={amount_of_questions}
-            type='number'></input>
+            type='number'
+            min={0}
+            max={100}></input>
         </label>
         <button type='submit'>Start</button>
       </form>

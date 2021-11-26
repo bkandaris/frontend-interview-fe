@@ -6,6 +6,7 @@ export const handleScoreChange = (payload) => ({
 });
 
 export const handleAmountChange = (payload) => ({
-    type: CHANGE_AMOUNT,
-    payload,
-  });
+  type: CHANGE_AMOUNT,
+  payload,
+});
+

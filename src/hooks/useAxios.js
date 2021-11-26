@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 
-axios.defaults.baseURL = 'localhost:5000/api/javascript';
+axios.defaults.baseURL = 'https://frontend-interview-quiz.herokuapp.com/api/javascript';
 
 const useAxios = ({ url }) => {
   const [response, setResponse] = useState(null);
