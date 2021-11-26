@@ -14,32 +14,30 @@ const Questions = () => {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    if (response) {
+    if (response?.length) {
       const question = response[questionIndex];
-      let questionAnswer = question.correctAnswer;
       let answers = [...question.wrongAnswers];
-      const wrongAnswers = question.wrongAnswers;
-
-      answers.splice(getRandomInt(answers.length), 0, questionAnswer);
-
+      answers.splice(
+        getRandomInt(question.wrongAnswers.length),
+        0,
+        question.correctAnswer
+      );
       setOptions(answers);
-      console.log('final array of answers', answers);
     }
   }, [response, questionIndex]);
-
   if (loading) {
     return <h1>Loading...</h1>;
   }
   console.log('response', response);
+  console.log('optionsoutsideofuse', options);
 
   return (
     <div>
       <h1>Questions {questionIndex + 1}</h1>
       <h2>{response[questionIndex].question}</h2>
-      <button>Answer1</button>
-      <button>Answer2</button>
-      <button>Answer3</button>
-      <button>Answer4</button>
+      {options.map((data, id) => (
+        <button key={id}>{data.answer}</button>
+      ))}
       <div>
         <h4>Score: 3/ {amount_of_questions}</h4>
       </div>
