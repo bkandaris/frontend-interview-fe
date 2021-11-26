@@ -17,7 +17,7 @@ function App() {
         <Route path='/questionscrud' element={<QuestionsUpdate />} /> */}
           <Route path='/' element={<Settings />} />
           <Route path='/questions' element={<Questions />} />
-          <Route path='/finalscreen' element={<FinalScreen />} />
+          <Route path='/score' element={<FinalScreen />} />
         </Routes>
       </div>
     </Router>

@@ -14,7 +14,7 @@ const useAxios = ({ url }) => {
     const fetchData = () => {
       axios
         .get(url)
-        .then((res) => setResponse(res.data))
+        .then((res) => setResponse(res.data.slice(0, amount_of_questions)))
         .catch((err) => setError(err))
         .finally(() => setLoading(false));
     };
