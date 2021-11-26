@@ -1,5 +1,19 @@
 import axios from 'axios';
 
+const createQuestion = (newQuestion) => {
+  axios
+    .post(
+      'https://frontend-interview-quiz.herokuapp.com/api/javascript',
+      newQuestion
+    )
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log('error', error);
+    });
+};
+
 const updateQuestion = (
   id,
   updatedQuestion,
@@ -39,4 +53,4 @@ const deleteQuestion = (id) => {
     });
 };
 
-export { updateQuestion, deleteQuestion };
+export { createQuestion, updateQuestion, deleteQuestion };

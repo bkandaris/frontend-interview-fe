@@ -61,7 +61,7 @@ const QuestionUpdate = () => {
         />
         <label>Correct Answer</label>
         <input
-          placeholder={individualQuestion.correctAnswer.answer}
+          placeholder={individualQuestion.correctAnswer}
           onChange={handleChange}
           type='text'
           name='answer'

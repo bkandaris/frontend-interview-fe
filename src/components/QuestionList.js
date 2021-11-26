@@ -27,10 +27,13 @@ const QuestionsUpdate = () => {
       {questions &&
         questions.map((question) => {
           return (
-            <Link to={`/update/${question._id}`}>
-              <div key={question._id}>{question.question}</div>
+            <div key={question._id}>
+              <p>{question.question}</p>
               <button>x</button>
-            </Link>
+              <Link to={`/update/${question._id}`}>
+                <button>Update</button>
+              </Link>
+            </div>
           );
         })}
     </div>

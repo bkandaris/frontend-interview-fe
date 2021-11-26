@@ -8,6 +8,7 @@ import FinalScreen from './components/FinalScreen';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import QuestionsList from './components/QuestionList';
 import QuestionUpdate from './components/QuestionUpdate';
+import AddQuestion from './components/AddQuestion';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/score' element={<FinalScreen />} />
           <Route path='/update' element={<QuestionsList />} />
           <Route path='update/:questionId' element={<QuestionUpdate />} />
+          <Route path='/add' element={<AddQuestion />} />
         </Routes>
       </div>
     </Router>
