@@ -22,9 +22,9 @@ const QuestionUpdate = () => {
       params.questionId,
       formState.question,
       formState.answer,
-      formState.incorrect1,
-      formState.incorrect2,
-      formState.incorrect3
+      formState.wrongAnswers[0].answer,
+      formState.wrongAnswers[1].answer,
+      formState.wrongAnswers[2].answer
     );
   };
 
@@ -35,6 +35,7 @@ const QuestionUpdate = () => {
       )
       .then((res) => {
         setIndividualQuestion(res.data);
+        setFormState(res.data);
         console.log('individual', res.data);
       })
       .catch((err) => {
@@ -50,7 +51,6 @@ const QuestionUpdate = () => {
   return (
     <div>
       <h1>Update individual questions</h1>
-      {/* On submit goes on form */}
       <form onSubmit={handleSubmit}>
         <label>Question</label>
         <input
@@ -60,16 +60,13 @@ const QuestionUpdate = () => {
           name='question'
         />
         <label>Correct Answer</label>
-        {/* onChange on labels */}
         <input
-          defaultValue='Correct Answer Here'
           placeholder={individualQuestion.correctAnswer.answer}
           onChange={handleChange}
           type='text'
           name='answer'
         />
         <label>First Incorrect Answer</label>
-        {/* onChange on labels */}
         <input
           placeholder={individualQuestion.wrongAnswers[0].answer}
           onChange={handleChange}
@@ -77,7 +74,6 @@ const QuestionUpdate = () => {
           name='incorrect1'
         />
         <label>Second Incorrect Answer</label>
-        {/* onChange on labels */}
         <input
           placeholder={individualQuestion.wrongAnswers[1].answer}
           onChange={handleChange}
@@ -85,7 +81,6 @@ const QuestionUpdate = () => {
           name='incorrect2'
         />
         <label>Third Incorrect Answer</label>
-        {/* onChange on labels */}
         <input
           placeholder={individualQuestion.wrongAnswers[2].answer}
           onChange={handleChange}
