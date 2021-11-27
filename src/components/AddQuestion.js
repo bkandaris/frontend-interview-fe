@@ -20,10 +20,6 @@ const AddQuestion = () => {
       ...addQuestion,
       [e.target.name]: value,
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
     setSubmitObject({
       question: addQuestion.question,
       correctAnswer: { answer: addQuestion.correctAnswer },
@@ -33,11 +29,25 @@ const AddQuestion = () => {
         { answer: addQuestion.wrongAnswers3 },
       ],
     });
+  };
+  console.log('addQuestion State', addQuestion);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setSubmitObject({
+    //   question: addQuestion.question,
+    //   correctAnswer: { answer: addQuestion.correctAnswer },
+    //   wrongAnswers: [
+    //     { answer: addQuestion.wrongAnswers1 },
+    //     { answer: addQuestion.wrongAnswers2 },
+    //     { answer: addQuestion.wrongAnswers3 },
+    //   ],
+    // });
     console.log('mysubmitObject in handle', submitObject);
     createQuestion(submitObject);
     navigate('/update');
   };
 
+  console.log('mysubmitObject in outside of handle', submitObject);
   return (
     <div>
       <form onSubmit={handleSubmit}>

@@ -52,18 +52,20 @@ const Questions = () => {
   console.log('responselength', response.length);
 
   return (
-    <div>
-      <h1>Questions {questionIndex + 1}</h1>
-      <h2>{response[questionIndex].question}</h2>
-      {options.map((data, id) => (
-        <button onClick={handleClickAnswer} key={id}>
-          {data.answer}
-        </button>
-      ))}
-      <div>
-        <h4>
-          Score: {score} / {amount_of_questions}
-        </h4>
+    <div className='questions-wrapper'>
+      <div className='question-wrapper border'>
+        <h1>Question #{questionIndex + 1}</h1>
+        <h2>{response[questionIndex].question}</h2>
+        {options.map((data, id) => (
+          <button onClick={handleClickAnswer} key={id}>
+            {data.answer}
+          </button>
+        ))}
+        <div>
+          <h4>
+            Score: {score} / {amount_of_questions}
+          </h4>
+        </div>
       </div>
     </div>
   );

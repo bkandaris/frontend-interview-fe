@@ -124,3 +124,52 @@
   border: 3px solid darkgreen;
   transition: 0.2s;
 }
+
+/* Questions */
+
+.questions-wrapper {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-wrapper {
+  height: 500px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.question-wrapper > h1 {
+  text-align: center;
+  color: darkgreen;
+  margin: 0.8rem;
+  padding: 5px;
+  text-shadow: 1px 1px 1px #000, 3px 3px 5px lightgrey;
+  border-bottom: 5px solid green;
+}
+
+.question-wrapper > h2 {
+  color: darkgreen;
+  margin: 10px;
+}
+
+.question-wrapper > button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: darkgreen;
+  padding: 5px;
+  margin: 1%;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+.question-wrapper > button:hover {
+  color: darkgreen;
+  background-color: white;
+  border: 1px solid darkgreen;
+  transition: 0.2s;
+}
