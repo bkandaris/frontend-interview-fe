@@ -1,26 +1,30 @@
 import React from 'react';
-import TextFieldComp from './TextFieldComp';
+import Amount from './Amount';
 import useAxios from '../hooks/useAxios';
 import { useNavigate } from 'react-router-dom';
+import PropagateLoader from 'react-spinners/ClipLoader';
+import { css } from '@emotion/react';
 
 const Settings = () => {
   const { response, error, loading } = useAxios({ url: '/api_category' });
   const navigate = useNavigate();
 
+  const override = css`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  `;
+
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <PropagateLoader css={override} />;
   }
 
-  //   if (error) {
-  //     return <h1>Error</h1>;
-  //   }
-
-
-
   return (
-    <div>
-      <h1>Frontend Interview Study App</h1>
-      <TextFieldComp />
+    <div className='settings-wrapper'>
+      <div className='border'>
+        <h1>Quiz Settings</h1>
+        <Amount />
+      </div>
     </div>
   );
 };

@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Home Page */
+.home-wrapper {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./assets/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.info-container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.info-container > h1 {
+  letter-spacing: 0.1rem;
+  margin: 0.2rem;
+}
+.info-container > h3 {
+  margin: 0.2rem;
+}
+
+.info-container > button {
   color: white;
+  width: 140px;
+  height: 45px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  background-color: rgb(23, 8, 243);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-top: 1.1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.info-container > button:hover {
+  background-color: #fff;
+  box-shadow: 0px 15px 20px rgba(60, 164, 233, 0.4);
+  color: rgb(23, 8, 243);
+  transform: translateY(-7px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Settings Page */
+
+.settings-wrapper {
+  height: 80vh;
+}
+
+.settings-wrapper > div > h1 {
+  color: darkgreen;
+  margin: 0.8rem;
+  text-shadow: 1px 1px 1px #000, 3px 3px 5px lightgrey;
+  margin-top: 10%;
+}
+
+.settings-wrapper > div {
+  text-align: center;
+  margin: 15% auto 0 auto;
+  width: 385px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.border {
+  border: 5px solid darkgreen;
+  border-radius: 5px;
+  box-shadow: 5px 5px lightgreen;
+}
+
+.amount-input {
+  text-align: center;
+  font-size: 2rem;
+  border: none;
+  border: 1px solid darkgreen;
+  border-radius: 5px;
+}
+
+.amount-wrapper > p {
+  color: darkgreen;
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.amount-wrapper > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.amount-wrapper > form > button {
+  height: 65px;
+  width: 110px;
+  margin: 15px auto;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: darkgreen;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  font-size: 1.1rem;
+}
+.amount-wrapper > form > button:hover {
+  color: darkgreen;
+  background-color: white;
+  border: 3px solid darkgreen;
+  transition: 0.2s;
 }

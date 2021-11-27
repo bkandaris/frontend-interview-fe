@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import QuestionsList from './components/QuestionList';
 import QuestionUpdate from './components/QuestionUpdate';
 import AddQuestion from './components/AddQuestion';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -16,9 +17,8 @@ function App() {
       {/* Wrapper */}
       <div>
         <Routes>
-          {/* <Route path='/' element={<AdminLogin />} />
-        <Route path='/questionscrud' element={<QuestionsUpdate />} /> */}
-          <Route path='/' element={<Settings />} />
+        <Route path='/' element={<Home />} />
+          <Route path='/settings' element={<Settings />} />
           <Route path='/questions' element={<Questions />} />
           <Route path='/score' element={<FinalScreen />} />
           <Route path='/update' element={<QuestionsList />} />
