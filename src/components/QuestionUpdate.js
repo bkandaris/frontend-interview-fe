@@ -66,7 +66,6 @@ const QuestionUpdate = () => {
         setInc1(res.data.wrongAnswers[0].answer);
         setInc2(res.data.wrongAnswers[1].answer);
         setInc3(res.data.wrongAnswers[2].answer);
-        console.log('individual', res.data);
       })
       .catch((err) => {
         console.log(err);
