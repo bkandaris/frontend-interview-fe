@@ -15,10 +15,11 @@ const FinalScreen = () => {
   };
 
   return (
-    <div>
-      <h1>
+    <div className="final-wrapper">
+      <h1>Good job! You finished!</h1>
+      <h3>
         Final Score: {score} / {amount_of_questions}
-      </h1>
+      </h3>
       <button onClick={handleClick}>Restart</button>
     </div>
   );

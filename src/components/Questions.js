@@ -41,6 +41,8 @@ const Questions = () => {
 
     if (e.target.textContent === question.correctAnswer.answer) {
       dispatch(handleScoreChange(score + 1));
+    } else {
+      alert(`Correct Answer: ${question.correctAnswer.answer}`);
     }
 
     if (questionIndex + 1 < response.length) {
@@ -62,7 +64,7 @@ const Questions = () => {
           </button>
         ))}
         <div>
-          <h4>
+          <h4 className='score'>
             Score: {score} / {amount_of_questions}
           </h4>
         </div>
