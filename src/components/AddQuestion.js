@@ -33,24 +33,14 @@ const AddQuestion = () => {
   console.log('addQuestion State', addQuestion);
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setSubmitObject({
-    //   question: addQuestion.question,
-    //   correctAnswer: { answer: addQuestion.correctAnswer },
-    //   wrongAnswers: [
-    //     { answer: addQuestion.wrongAnswers1 },
-    //     { answer: addQuestion.wrongAnswers2 },
-    //     { answer: addQuestion.wrongAnswers3 },
-    //   ],
-    // });
-    console.log('mysubmitObject in handle', submitObject);
     createQuestion(submitObject);
     alert('question has been added!');
     navigate('/update');
   };
 
-  console.log('mysubmitObject in outside of handle', submitObject);
   return (
-    <div>
+    <div className='add-question'>
+      <h1>Add a Question</h1>
       <form onSubmit={handleSubmit}>
         <label>Question</label>
         <input
@@ -90,7 +80,7 @@ const AddQuestion = () => {
           id='wrongAnswers3'
           name='wrongAnswers3'
         />
-        <input type='submit' value='add' />
+        <input className='submit-add' type='submit' value='Add Question' />
       </form>
     </div>
   );

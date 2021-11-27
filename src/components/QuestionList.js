@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import PropagateLoader from 'react-spinners/ClipLoader';
+import { css } from '@emotion/react';
 
 const QuestionsUpdate = () => {
   const [questions, setQuestions] = useState();
-  const params = useParams();
+  const [totalQuestions, setTotalQuestions] = useState();
+  const navigate = useNavigate();
+
+  const override = css`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  `;
 
   useEffect(() => {
     axios
       .get('https://frontend-interview-quiz.herokuapp.com/api/javascript')
       .then((response) => {
         setQuestions(response.data);
+        setTotalQuestions(response.data.length);
       })
       .catch((err) => {
         console.log(err);
@@ -18,19 +28,25 @@ const QuestionsUpdate = () => {
   }, []);
 
   if (!questions) {
-    return <h1>Loading...</h1>;
+    return <PropagateLoader css={override} />;
   }
 
   return (
-    <div>
-      <h1>CRUD Questions</h1>
+    <div className='question-list-wrapper'>
+      <h1>Add, Update or Delete Questions</h1>
+      <h3>Total Questions: {totalQuestions}</h3>
+      <button
+        onClick={() => {
+          navigate('/add');
+        }}>
+        Add a question
+      </button>
       {questions &&
         questions.map((question) => {
           return (
-            <div key={question._id}>
-              <p>{question.question}</p>
+            <div className='individual-question' key={question._id}>
               <Link to={`/update/${question._id}`}>
-                <button>Update or Delete Question</button>
+                <p>{question.question}</p>
               </Link>
             </div>
           );

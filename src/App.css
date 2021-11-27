@@ -5,6 +5,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Home Page */
 .home-wrapper {
   height: 100vh;
@@ -225,4 +229,167 @@
   background-color: white;
   border: 3px solid darkgreen;
   transition: 0.2s;
+}
+
+/* Add Question */
+
+.add-question {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-question > h1 {
+  text-align: center;
+  margin: 10px auto;
+  color: darkgreen;
+}
+
+.add-question > form {
+  border: 3px solid darkgreen;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.add-question > form > label {
+  margin: 15px 0 3px 0;
+}
+
+.add-question > form > input {
+  padding: 5px;
+}
+
+.submit-add {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: darkgreen;
+  padding: 5px;
+  margin: 10px auto;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  width: 200px;
+}
+
+/* Question List */
+
+.question-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-list-wrapper > h1 {
+  text-align: center;
+  color: darkgreen;
+  margin: 0.8rem;
+  padding: 5px;
+  text-shadow: 1px 1px 1px #000, 3px 3px 5px lightgrey;
+  border-bottom: 5px solid green;
+}
+
+.question-list-wrapper > h3 {
+  color: darkgreen;
+}
+
+.question-list-wrapper > button {
+  height: 65px;
+  width: 210px;
+  margin: 15px auto;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: darkgreen;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  font-size: 1.1rem;
+}
+
+.question-list-wrapper > button:hover {
+  color: darkgreen;
+  background-color: white;
+  border: 3px solid darkgreen;
+  transition: 0.2s;
+}
+
+.individual-question {
+  margin: 10px 0;
+  width: 430px;
+  font-size: 1.2rem;
+}
+
+/* Update Questions */
+
+.update-question-wrapper {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-question-wrapper > h1 {
+  text-align: center;
+  margin: 10px auto;
+  color: darkgreen;
+}
+
+.update-question-wrapper > form {
+  border: 3px solid darkgreen;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.update-question-wrapper > form > label {
+  margin: 15px 0 3px 0;
+}
+
+.update-question-wrapper > form > input {
+  padding: 5px;
+}
+
+.update-button {
+  height: 45px;
+  width: 120px;
+  margin: 10px auto;
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+.delete-question {
+  height: 45px;
+  width: 120px;
+  margin: 5px auto;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.back-to {
+  height: 45px;
+  width: 120px;
+  margin: 5px auto;
+  background-color: darkgreen;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }

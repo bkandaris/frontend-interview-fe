@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { updateQuestion, deleteQuestion } from '../crud/crudRequests';
 import { useNavigate } from 'react-router';
+import PropagateLoader from 'react-spinners/ClipLoader';
+import { css } from '@emotion/react';
 
 const QuestionUpdate = () => {
   const [formState, setFormState] = useState();
@@ -11,6 +13,12 @@ const QuestionUpdate = () => {
   const [inc1, setInc1] = useState();
   const [inc2, setInc2] = useState();
   const [inc3, setInc3] = useState();
+
+  const override = css`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  `;
 
   const navigate = useNavigate();
   const params = useParams();
@@ -63,17 +71,14 @@ const QuestionUpdate = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-
-  console.log('formState', formState);
-  console.log('correctAnswer State', corr);
+  }, [params.questionId]);
 
   if (!individualQuestion) {
-    return <h1>Loading...</h1>;
+    return <PropagateLoader css={override} />;
   }
 
   return (
-    <div>
+    <div className='update-question-wrapper'>
       <h1>Update individual questions</h1>
       <form onSubmit={handleSubmit}>
         <label>Question</label>
@@ -111,15 +116,22 @@ const QuestionUpdate = () => {
           type='text'
           name='incorrect3'
         />
-        <input type='submit' value='Update Question' />
+        <input
+          type='submit'
+          className='update-button'
+          value='Update Question'
+        />
+        <button className='delete-question' onClick={handleClick}>
+          Delete Question
+        </button>
+        <button
+          className='back-to'
+          onClick={() => {
+            navigate('/update');
+          }}>
+          Back to List
+        </button>
       </form>
-      <button onClick={handleClick}>Delete Question</button>
-      <button
-        onClick={() => {
-          navigate('/update');
-        }}>
-        Back to Questions List
-      </button>
     </div>
   );
 };

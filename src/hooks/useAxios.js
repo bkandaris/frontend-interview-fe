@@ -19,7 +19,7 @@ const useAxios = ({ url }) => {
         .finally(() => setLoading(false));
     };
     fetchData();
-  }, [url]);
+  }, [url, amount_of_questions]);
 
   return {
     response,

@@ -1,13 +1,11 @@
 import React from 'react';
 import Amount from './Amount';
 import useAxios from '../hooks/useAxios';
-import { useNavigate } from 'react-router-dom';
 import PropagateLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/react';
 
 const Settings = () => {
-  const { response, error, loading } = useAxios({ url: '/api_category' });
-  const navigate = useNavigate();
+  const { loading } = useAxios({ url: '/api_category' });
 
   const override = css`
     position: fixed;
