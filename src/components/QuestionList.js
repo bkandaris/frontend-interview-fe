@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { deleteQuestion } from '../crud/crudRequests';
+import { useParams, Link } from 'react-router-dom';
 
 const QuestionsUpdate = () => {
   const [questions, setQuestions] = useState();
+  const params = useParams();
 
   useEffect(() => {
     axios
@@ -29,9 +29,8 @@ const QuestionsUpdate = () => {
           return (
             <div key={question._id}>
               <p>{question.question}</p>
-              <button>x</button>
               <Link to={`/update/${question._id}`}>
-                <button>Update</button>
+                <button>Update or Delete Question</button>
               </Link>
             </div>
           );

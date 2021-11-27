@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
-import { updateQuestion } from '../crud/crudRequests';
+import { updateQuestion, deleteQuestion } from '../crud/crudRequests';
 
 const QuestionUpdate = () => {
   const [formState, setFormState] = useState();
@@ -26,6 +26,10 @@ const QuestionUpdate = () => {
       formState.wrongAnswers[1].answer,
       formState.wrongAnswers[2].answer
     );
+  };
+
+  const handleClick = () => {
+    deleteQuestion(params.questionId);
   };
 
   useEffect(() => {
@@ -61,7 +65,7 @@ const QuestionUpdate = () => {
         />
         <label>Correct Answer</label>
         <input
-          placeholder={individualQuestion.correctAnswer}
+          placeholder={individualQuestion.correctAnswer.answer}
           onChange={handleChange}
           type='text'
           name='answer'
@@ -87,8 +91,9 @@ const QuestionUpdate = () => {
           type='text'
           name='incorrect3'
         />
-        <input type='submit' value='Change' />
+        <input type='submit' value='Update Question' />
       </form>
+      <button onClick={handleClick}>Delete Question</button>
     </div>
   );
 };
