@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { createQuestion } from '../crud/crudRequests';
 
+import { useNavigate } from 'react-router';
+
 const AddQuestion = () => {
   const [addQuestion, setAddQuestion] = useState({
     question: '',
@@ -10,6 +12,7 @@ const AddQuestion = () => {
     wrongAnswers3: '',
   });
   const [submitObject, setSubmitObject] = useState();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -32,6 +35,7 @@ const AddQuestion = () => {
     });
     console.log('mysubmitObject in handle', submitObject);
     createQuestion(submitObject);
+    navigate('/update');
   };
 
   return (

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { updateQuestion, deleteQuestion } from '../crud/crudRequests';
+import { useNavigate } from 'react-router';
 
 const QuestionUpdate = () => {
   const [formState, setFormState] = useState();
   const [individualQuestion, setIndividualQuestion] = useState();
+  const navigate = useNavigate();
   const params = useParams();
   const handleChange = (e) => {
     const value = e.target.value;
@@ -26,10 +28,14 @@ const QuestionUpdate = () => {
       formState.wrongAnswers[1].answer,
       formState.wrongAnswers[2].answer
     );
+    alert('question has been updated');
+    navigate('/update');
   };
 
   const handleClick = () => {
     deleteQuestion(params.questionId);
+    alert('question has been deleted');
+    navigate('/update');
   };
 
   useEffect(() => {
@@ -94,6 +100,12 @@ const QuestionUpdate = () => {
         <input type='submit' value='Update Question' />
       </form>
       <button onClick={handleClick}>Delete Question</button>
+      <button
+        onClick={() => {
+          navigate('/update');
+        }}>
+        Back to Questions List
+      </button>
     </div>
   );
 };
