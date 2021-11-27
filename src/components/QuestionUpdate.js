@@ -7,6 +7,11 @@ import { useNavigate } from 'react-router';
 const QuestionUpdate = () => {
   const [formState, setFormState] = useState();
   const [individualQuestion, setIndividualQuestion] = useState();
+  const [corr, setCorr] = useState();
+  const [inc1, setInc1] = useState();
+  const [inc2, setInc2] = useState();
+  const [inc3, setInc3] = useState();
+
   const navigate = useNavigate();
   const params = useParams();
   const handleChange = (e) => {
@@ -17,24 +22,27 @@ const QuestionUpdate = () => {
     });
   };
 
+  const handleClick = () => {
+    deleteQuestion(params.questionId);
+    alert('question has been deleted');
+    navigate('/update');
+  };
+  console.log('inc1', inc1);
+  console.log('inc2', inc2);
+  console.log('inc3', inc3);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     updateQuestion(
       params.questionId,
       formState.question,
-      formState.answer,
-      formState.wrongAnswers[0].answer,
-      formState.wrongAnswers[1].answer,
-      formState.wrongAnswers[2].answer
+      corr,
+      inc1,
+      inc2,
+      inc3
     );
     alert('question has been updated');
-    navigate('/update');
-  };
-
-  const handleClick = () => {
-    deleteQuestion(params.questionId);
-    alert('question has been deleted');
     navigate('/update');
   };
 
@@ -46,13 +54,19 @@ const QuestionUpdate = () => {
       .then((res) => {
         setIndividualQuestion(res.data);
         setFormState(res.data);
+        setCorr(res.data.correctAnswer.answer);
+        setInc1(res.data.wrongAnswers[0].answer);
+        setInc2(res.data.wrongAnswers[0].answer);
+        setInc3(res.data.wrongAnswers[0].answer);
         console.log('individual', res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
   console.log('formState', formState);
+  console.log('correctAnswer State', corr);
 
   if (!individualQuestion) {
     return <h1>Loading...</h1>;
@@ -72,28 +86,28 @@ const QuestionUpdate = () => {
         <label>Correct Answer</label>
         <input
           placeholder={individualQuestion.correctAnswer.answer}
-          onChange={handleChange}
+          onChange={(e) => setCorr(e.target.value)}
           type='text'
           name='answer'
         />
         <label>First Incorrect Answer</label>
         <input
           placeholder={individualQuestion.wrongAnswers[0].answer}
-          onChange={handleChange}
+          onChange={(e) => setInc1(e.target.value)}
           type='text'
           name='incorrect1'
         />
         <label>Second Incorrect Answer</label>
         <input
           placeholder={individualQuestion.wrongAnswers[1].answer}
-          onChange={handleChange}
+          onChange={(e) => setInc2(e.target.value)}
           type='text'
           name='incorrect2'
         />
         <label>Third Incorrect Answer</label>
         <input
           placeholder={individualQuestion.wrongAnswers[2].answer}
-          onChange={handleChange}
+          onChange={(e) => setInc3(e.target.value)}
           type='text'
           name='incorrect3'
         />

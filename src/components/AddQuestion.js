@@ -44,6 +44,7 @@ const AddQuestion = () => {
     // });
     console.log('mysubmitObject in handle', submitObject);
     createQuestion(submitObject);
+    alert('question has been added!');
     navigate('/update');
   };
 
@@ -83,7 +84,7 @@ const AddQuestion = () => {
         />
         <label>Third Incorrect Answer</label>
         <input
-          placeholder={'Third incorrect answer'}
+          placeholder={'Second incorrect answer'}
           onChange={handleChange}
           type='text'
           id='wrongAnswers3'

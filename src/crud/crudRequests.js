@@ -7,7 +7,7 @@ const createQuestion = (newQuestion) => {
       newQuestion
     )
     .then((response) => {
-      console.log(response);
+      console.log('response', response);
     })
     .catch((error) => {
       console.log('error', error);
@@ -25,7 +25,7 @@ const updateQuestion = (
   axios
     .put(`https://frontend-interview-quiz.herokuapp.com/api/javascript/${id}`, {
       question: updatedQuestion,
-      correctAnswer: updatedCorrect,
+      correctAnswer: { answer: updatedCorrect },
       wrongAnswers: [
         { answer: updatedIncorrect1 },
         { answer: updatedIncorrect2 },
@@ -33,7 +33,7 @@ const updateQuestion = (
       ],
     })
     .then((response) => {
-      console.log(response);
+      console.log('response', response);
     })
     .catch((error) => {
       console.log('put error', error);

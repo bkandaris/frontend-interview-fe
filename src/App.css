@@ -154,6 +154,7 @@
 .question-wrapper > h2 {
   color: darkgreen;
   margin: 10px;
+  overflow-wrap: normal;
 }
 
 .question-wrapper > button {
