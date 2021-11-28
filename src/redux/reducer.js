@@ -1,7 +1,7 @@
 import { CHANGE_AMOUNT, CHANGE_SCORE } from './actionTypes';
 
 const initialState = {
-  amount_of_questions: 3,
+  amount_of_questions: 20,
   score: 0,
 };
 
