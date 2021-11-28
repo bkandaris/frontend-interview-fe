@@ -5,7 +5,9 @@ import PropagateLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/react';
 
 const Settings = () => {
-  const { loading } = useAxios({ url: '/api_category' });
+  const { loading } = useAxios({
+    url: 'https://frontend-interview-quiz.herokuapp.com/api/javascript',
+  });
 
   const override = css`
     position: fixed;

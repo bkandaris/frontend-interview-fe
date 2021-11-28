@@ -5,6 +5,8 @@ import { updateQuestion, deleteQuestion } from '../crud/crudRequests';
 import { useNavigate } from 'react-router';
 import PropagateLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/react';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
 
 const QuestionUpdate = () => {
   const [formState, setFormState] = useState();
@@ -32,12 +34,15 @@ const QuestionUpdate = () => {
 
   const handleClick = () => {
     deleteQuestion(params.questionId);
-    alert('question has been deleted');
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Question has been deleted.',
+      showConfirmButton: true,
+      timer: 2500,
+    });
     navigate('/update');
   };
-  console.log('inc1', inc1);
-  console.log('inc2', inc2);
-  console.log('inc3', inc3);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,7 +55,13 @@ const QuestionUpdate = () => {
       inc2,
       inc3
     );
-    alert('question has been updated');
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Question updated',
+      showConfirmButton: true,
+      timer: 2500,
+    });
     navigate('/update');
   };
 

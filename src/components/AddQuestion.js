@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createQuestion } from '../crud/crudRequests';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
 import { useNavigate } from 'react-router';
 
 const AddQuestion = () => {
@@ -30,11 +31,17 @@ const AddQuestion = () => {
       ],
     });
   };
-  console.log('addQuestion State', addQuestion);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     createQuestion(submitObject);
-    alert('question has been added!');
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Question has been added.',
+      showConfirmButton: false,
+      timer: 5000,
+    });
     navigate('/update');
   };
 

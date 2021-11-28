@@ -3,6 +3,8 @@ import useAxios from '../hooks/useAxios';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { handleScoreChange } from '../redux/actions';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
@@ -20,7 +22,6 @@ const Questions = () => {
   useEffect(() => {
     if (response?.length) {
       const question = response[questionIndex];
-      console.log('question', question.correctAnswer.answer);
       let answers = [...question.wrongAnswers];
       answers.splice(
         getRandomInt(question.wrongAnswers.length),
@@ -33,8 +34,6 @@ const Questions = () => {
   if (loading) {
     return <h1>Loading...</h1>;
   }
-  console.log('response', response);
-  console.log('optionsoutsideofuse', options);
 
   const handleClickAnswer = (e) => {
     const question = response[questionIndex];
@@ -42,7 +41,14 @@ const Questions = () => {
     if (e.target.textContent === question.correctAnswer.answer) {
       dispatch(handleScoreChange(score + 1));
     } else {
-      alert(`Correct Answer: ${question.correctAnswer.answer}`);
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'You will get it next time!',
+        text: question.correctAnswer.answer,
+        showConfirmButton: true,
+        timer: 2500,
+      });
     }
 
     if (questionIndex + 1 < response.length) {
@@ -51,7 +57,6 @@ const Questions = () => {
       navigate('/score');
     }
   };
-  console.log('responselength', response.length);
 
   return (
     <div className='questions-wrapper'>
