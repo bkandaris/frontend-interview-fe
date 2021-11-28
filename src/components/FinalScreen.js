@@ -10,12 +10,12 @@ const FinalScreen = () => {
 
   const handleClick = () => {
     dispatch(handleScoreChange(0));
-    dispatch(handleAmountChange(100));
-    navigate('/');
+    dispatch(handleAmountChange(20));
+    navigate('/settings');
   };
 
   return (
-    <div className="final-wrapper">
+    <div className='final-wrapper'>
       <h1>Good job! You finished!</h1>
       <h3>
         Final Score: {score} / {amount_of_questions}

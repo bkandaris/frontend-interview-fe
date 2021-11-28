@@ -30,8 +30,8 @@ const Amount = () => {
             placeholder={amount_of_questions}
             type='number'
             min={0}
-            max={100}
-            defaultValue={100}></input>
+            max={20}
+            defaultValue={20}></input>
         </label>
         <button type='submit'>Start Quizzing</button>
       </form>
