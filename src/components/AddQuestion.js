@@ -63,7 +63,7 @@ const AddQuestion = () => {
           type='text'
           name='correctAnswer'
         />
-        <label>First Incorrect Answer</label>
+        <label>1st Incorrect Answer</label>
         <input
           placeholder={'First incorrect answer'}
           onChange={handleChange}
@@ -71,7 +71,7 @@ const AddQuestion = () => {
           id='wrongAnswers1'
           name='wrongAnswers1'
         />
-        <label>Second Incorrect Answer</label>
+        <label>2nd Incorrect Answer</label>
         <input
           placeholder={'Second incorrect answer'}
           onChange={handleChange}
@@ -79,7 +79,7 @@ const AddQuestion = () => {
           id='wrongAnswers2'
           name='wrongAnswers2'
         />
-        <label>Third Incorrect Answer</label>
+        <label>3rd Incorrect Answer</label>
         <input
           placeholder={'Second incorrect answer'}
           onChange={handleChange}
