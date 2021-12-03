@@ -1,6 +1,6 @@
 # JavaScript Quiz Application
 
-This project is hosted at: https://javascriptquizapplication.netlify.app/
+This project is hosted at: https://javascriptquizapplication.netlify.app/ \
 Backend repo: https://github.com/bkandaris/frontend-interview-be
 
 ### `Why did I build this project?`
